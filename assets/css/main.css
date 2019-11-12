@@ -1,0 +1,146 @@
+body{
+  background-color: #455D73;
+}
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.my_main-container{
+  padding: 0;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  padding-top: 27px;
+  padding-bottom: 15px;
+}
+
+#main-background{
+  background-color: #1B3C59;
+  height: 200px;
+  position: absolute;
+  width: 100%;
+}
+
+.my_col-main{
+  background-color: white;
+  padding:0;
+  display: flex;
+  max-height: 525px;
+}
+
+.my_col-main > div {
+  padding:0;
+}
+
+#my_container-left{
+  height: 100%;
+}
+
+/* User options */
+.user_options{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #EAEAEA;
+  height: 75px;
+}
+.icon img{
+  width: 50px;
+}
+
+.options{
+  display: flex;
+}
+
+.options svg, .options img{
+  width:25px;
+  height: 25px;
+  margin-right: 15px;
+}
+
+/* User options and Notifications*/
+.notifications,
+.user_options{
+  padding: 15px;
+}
+
+/* Notifications */
+
+.notifications{
+  display: flex;
+  align-items: center;
+  background: #76DCFF;
+  max-height: 80px;
+}
+
+.text-mute {
+  margin-left: 10px;
+}
+
+.notifications p{
+  margin-bottom:0px;
+  font-size: 15px;
+}
+
+.notifications p:last-child{
+  text-decoration: underline;
+  color: rgb(97, 97, 97);
+}
+
+.notifications p:last-child:hover{
+  cursor: pointer;
+}
+
+/* Search bar  */
+.search{
+  display: flex;
+  padding: 10px;
+  align-items: center;
+  background-color: #EAEAEA;
+}
+
+#icon_search{
+  width: 30px;
+}
+
+.search input{
+  width: 100%;
+  padding: 5px 10px;
+}
+
+/* Users scroll */
+.scroll-users{
+  overflow-y: auto;
+  height: 312px;
+}
+
+#container_messages{
+background-image: url(../img/main-background.jpg);
+height: 400px;
+overflow-y: auto;
+background-size: cover;
+background-repeat: no-repeat;
+}
+
+.input_message{
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: #EAEAEA;
+}
+
+.input_message svg, .input_message img{
+  height: 25px;
+}
+
+.input_message input{
+  padding:3px;
+  border-radius: 5px;
+  width: 90%;
+  border-left-width: 0px;
+  border-top-width: 0px;
+}
