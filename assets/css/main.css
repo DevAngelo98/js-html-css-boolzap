@@ -188,3 +188,36 @@ flex-direction: column;
   display: none;
 }
 
+/* USER SCROLL */
+.user-container {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  background-color: white;
+  border-bottom: 1px solid #EAEAEA;
+}
+
+.user-container:hover{
+  cursor: pointer;
+  background-color: #EAEAEA;
+}
+
+.img_user{
+  margin-left: 5px;
+}
+
+.name_mesg{
+  margin-left: 15px;
+}
+
+.name_mesg > *{
+  margin:0px;
+}
+
+.scroll-users .user-container .img_user img{
+  width: 50px;
+}
+
+.none{
+  display: none;
+}
