@@ -21,6 +21,7 @@ body{
   height: 200px;
   position: absolute;
   width: 100%;
+  top:0;
 }
 
 .my_col-main{
@@ -122,6 +123,10 @@ height: 400px;
 overflow-y: auto;
 background-size: cover;
 background-repeat: no-repeat;
+color: white;
+color: white;
+display: flex;
+flex-direction: column;
 }
 
 .input_message{
@@ -135,6 +140,7 @@ background-repeat: no-repeat;
 
 .input_message svg, .input_message img{
   height: 25px;
+  width: 25px;
 }
 
 .input_message input{
@@ -144,3 +150,41 @@ background-repeat: no-repeat;
   border-left-width: 0px;
   border-top-width: 0px;
 }
+
+.send,
+.mic{
+  display: none;
+}
+
+#sendbutton{
+  display: block;
+}
+
+/* Container messages */
+
+
+.my-message-text,
+.user-message-text{
+  width: 30%;
+  margin-top: 5px;
+  border-radius: 15px;
+  padding: 10px;
+  word-wrap: break-word; 
+}
+
+.my-message-text{
+  margin-left: auto;
+  margin-right: 10px;
+  background: green;
+}
+
+.user-message-text{
+  margin-left: 10px;
+  background: grey;
+}
+
+/* template */
+#template-message{
+  display: none;
+}
+
