@@ -6,11 +6,13 @@ $(document).ready(function(){
     $("#container_messages").append(elementMsgBot);
   }
 
+  // Change icon to click
   $("#sendmessage").click(function(){  
     $("#micblock").addClass("mic");
     $(".send").attr('id',"sendbutton");
   });
 
+  // I create the message
   $(".send").click(function(){
     var textMessage = $("#sendmessage").val();
     var elementMsg = $("#template-message .my-message-text").clone();
@@ -21,30 +23,39 @@ $(document).ready(function(){
   });
 
 
+  // Contact search method
   $("#search").keyup(function(){
    var inputSearch = $(this).val().toUpperCase();
    console.log(inputSearch);
-   
    searchUser(inputSearch);
   });
 
   // Search user
   function searchUser (input){
-
-    if(input.lenght!=0){
-      $(".user-container").each(function(){
+    $(".user-container").each(function(){
         // console.log($(this).find("h5").text());
       if(!$(this).find("h5").text().toUpperCase().includes(input)){
         $(this).addClass("none");
-        // $(".user-container").not($(this)).addClass("ok");
       } else {
         $(this).removeClass("none");
       }
-      });
-    }
-    
-
+    });
   }
+  
+
+  
+  $(".user-container").each(function(){
+    $(this).click(function(){
+      $(".user-container").not($(this)).removeClass("backgroundtemp");
+      $(this).addClass("backgroundtemp");
+      var nameTemp = $(this).find("h5").text();
+      var imgTemp = $(this).find("img").clone();
+      $("#icontemp #namereplace").text(nameTemp);    
+      $("#icontemp img").replaceWith(imgTemp);  
+    });
+  });
+
+  
   
 
 });
