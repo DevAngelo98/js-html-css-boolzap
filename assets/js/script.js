@@ -29,7 +29,11 @@ $(document).ready(function(){
   $(".send").click(function(){
     var textMessage = $("#sendmessage").val();
     var elementMsg = $("#template-message .my-message-text").clone();
-    var elementText = elementMsg.text(textMessage);
+    console.log(elementMsg);
+    var remove = $("#template-message .remove").clone();
+    var svg = $("#template-message svg").clone();
+    var elementText = elementMsg.text(textMessage).append(remove).append(svg);
+    
     $("#container_messages").append(elementText);
     $("#sendmessage").val("");
     setTimeout(bot, 1000);
@@ -102,5 +106,17 @@ $(document).ready(function(){
       }
     });
   });
-  // console.log(containerUser);
+
+  // delete message
+  $(".right_my-col ").on("click", "#container_messages .remove", function(event){
+    event.preventDefault();
+    $(this).parent().addClass("none");
+  });
+
+  $(".right_my-col ").on("click", "#container_messages .svgremove", function(event){
+    event.preventDefault();
+    $(this).toggleClass("active");
+    $("#container_messages .remove").toggle();
+  });
+
 });

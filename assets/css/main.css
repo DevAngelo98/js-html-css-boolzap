@@ -193,6 +193,12 @@ flex-direction: column;
 /* Container messages */
 
 
+
+/* template */
+#template-message{
+  display: none;
+}
+
 .my-message-text,
 .user-message-text{
   width: 30%;
@@ -200,6 +206,9 @@ flex-direction: column;
   border-radius: 15px;
   padding: 10px;
   word-wrap: break-word; 
+  position: relative;
+  display: flex;
+  flex-direction: column;
 }
 
 .my-message-text{
@@ -213,9 +222,37 @@ flex-direction: column;
   background: grey;
 }
 
-/* template */
-#template-message{
+.remove{
+  margin: 0;
+  position: absolute;
+  padding: 10px;
+  background: white;
+  color: black;
+  border-radius: 5px;
+  margin-left: auto;
+  bottom: -50px;
+  align-self: center;
   display: none;
+  box-shadow: 3px 3px 5px 1px black;
+  font-weight: bold;
+}
+
+.svgremove{
+  width: 25px;
+  position: absolute;
+  left: -22px;
+  color: black;
+  display: none;
+}
+
+.svgremove:hover,
+.remove:hover{
+  cursor: pointer;
+}
+
+.my-message-text:hover .svgremove,
+.active{
+  display: block;
 }
 
 /* USER SCROLL */
