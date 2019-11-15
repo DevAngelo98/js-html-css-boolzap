@@ -1,20 +1,23 @@
 $(document).ready(function(){
-  // var arrayMsg = new Array();
+
   //Function bot
   function bot(){
     var elementMsgBot = $("#template-message .user-message-text").clone().text("ok");
     $("#container_messages").append(elementMsgBot);
-    // arrayMsg = [];
-    // arrayMsg.push($("#container_messages *").clone());
+    var msgUser = new Array();
     for(var i=0; i<containerUser.length; i++){
       var nameTemp=$("#icontemp").find("h5").text();
       var nameArray = containerUser[i].name;
-      if(nameTemp==nameArray){
-        containerUser[i].msg.push($("#container_messages *").clone());
+      // console.log(nameTemp);
+      if(nameTemp===nameArray){
+        msgUser.push($("#container_messages").clone());
+        containerUser[i].msg = msgUser;
+        // console.log(containerUser[i].msg);
       }
+      console.log(containerUser[i].msg);
     }
-    
   }
+  
 
   // Change icon to click
   $("#sendmessage").click(function(){  
@@ -54,20 +57,30 @@ $(document).ready(function(){
   
   //Object
   var userObj = {
-    name: "",
-    msg: []
+    init: function(name,msg){
+      this.name = name;
+      this.msg = msg;
+    },
   };
-
+  // var user = Object.create(userObj);
   var containerUser = new Array();
 
-  $(".user-container").each(function(){
+  $(".user-container").each(function(index){
     var containerEmpty = $("#container_messages").clone();
     var nameUser = $(this).find("h5").text();
+    var imgTemp = $(this).find("img").clone();
+    var msgUser = new Array();
     var user = Object.create(userObj);
     user.name = nameUser;
-    user.msg.lenght=0;
+    msgUser.push(containerEmpty);
+    user.msg = msgUser;
     containerUser.push(user);
-
+    if(index==0){
+      $("#icontemp #namereplace").text(nameUser);    
+      $("#icontemp img").replaceWith(imgTemp);
+      $(this).addClass("backgroundtemp");
+    }
+    
     $(this).click(function(){
       $(".user-container").not($(this)).removeClass("backgroundtemp");
       $(this).addClass("backgroundtemp");
@@ -75,18 +88,19 @@ $(document).ready(function(){
       var imgTemp = $(this).find("img").clone();
       $("#icontemp #namereplace").text(nameTemp);    
       $("#icontemp img").replaceWith(imgTemp);
+
       for(var i=0; i<containerUser.length; i++){
         var nameArray = containerUser[i].name;
-        if(nameTemp==nameArray && containerUser[i].msg.lenght>0){
+        if(nameTemp==nameArray){
+          console.log("DDDDD");
           // console.log(containerUser[i].msg.lenght);
-          // $("#container_messages").replaceWith(containerUser[i].msg);        
+          $("#container_messages").replaceWith(containerUser[i].msg);        
         } else if (containerUser[i].msg.lenght==0){
           $("#container_messages").replaceWith(containerEmpty);
-          console.log("SI");
+          // console.log("SI");
         }
       }
-      
     });
   });
-
+  // console.log(containerUser);
 });
